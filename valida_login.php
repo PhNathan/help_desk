@@ -1,13 +1,38 @@
 <?php  
-
+	//iniciando sessão
+	session_start();
 	
 
-	echo $_POST['email'];
-	echo "<br>";
-	echo $_POST['senha'];
-	echo "<hr>";
-	print_r($_POST);
+	//variavel que verifica se a auth deu certo;
+	$usuario_autenticado = false;
 
+
+	//usuários do sistema
+	$usuarios_app = [
+		['email' => 'admin@gmail.com', 'senha' => 'admin'],
+		['email' => 'user@gmail.com', 'senha' => 'user']
+	];
+
+
+	foreach ($usuarios_app as $user) {
+
+		//Controle de autenticação estática.
+		if ($user['email'] == $_POST['email'] && $user['senha'] == $_POST['senha']) {
+			$usuario_autenticado = true;
+	}
+
+		
+
+	}
+
+	if ($usuario_autenticado) {
+		echo "Usuário autenticado com sucesso !!";
+		$_SESSION['autenticado'] = 'SIM';
+	}else{
+		$_SESSION['autenticado'] = 'NAO';
+		header("Location: index.php?login=erro");
+	}
+	
 
 
 
