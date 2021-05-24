@@ -26,8 +26,8 @@
 	}
 
 	if ($usuario_autenticado) {
-		echo "Usuário autenticado com sucesso !!";
 		$_SESSION['autenticado'] = 'SIM';
+		header("Location: home.php");
 	}else{
 		$_SESSION['autenticado'] = 'NAO';
 		header("Location: index.php?login=erro");
