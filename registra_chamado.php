@@ -1,5 +1,6 @@
 <?php 
 
+session_start();
 
 //tratando a montagem de texto
 $titulo = str_replace('#','-',$_POST['titulo']);
@@ -8,7 +9,7 @@ $descicao = str_replace('#','-',$_POST['descricao']);
 
 //implode('#', $_POST);
 
-$texto  = $titulo . '#' . $categoria . '#' . $descicao . PHP_EOL;
+$texto  = $_SESSION['id'] . '#' . $titulo . '#' . $categoria . '#' . $descicao . PHP_EOL;
 
 //abrindo o arquivo
 $arquivo = fopen('arquivo.hd', 'a');

@@ -1,4 +1,10 @@
-<?php require_once("validar_acesso.php"); ?>
+<?php 
+
+require_once("validar_acesso.php"); 
+
+
+
+?>
 <html>
   <head>
     <meta charset="utf-8" />
